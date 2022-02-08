@@ -1,6 +1,6 @@
 <h1> Input : </h1>
-Two Singly Linked Lists consisting of "ListNodes"(value, next) where<br>
-<li>value = Single Digit Number<br>
+Two Linked Lists consisting of some "ListNode"s containing "val" and "next" where<br>
+<li>val = Single Digit Number<br>
 <li>next = Link to next node
 
 <h1> Approach</h1>
