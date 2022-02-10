@@ -1,0 +1,1 @@
+Combined Logic of First Bad Version and Insert Position Problem.
