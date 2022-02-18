@@ -16,17 +16,9 @@
 class Solution {
     public int minDepth(TreeNode root) {
         if(root == null) return 0;
-        
-        // leaf node
-        if(root.left == null && root.right == null) return 1;
-        
-		int left = minDepth(root.left);
-        int right = minDepth(root.right);
-		
-        if(root.left == null) return right + 1; // leaf nodes are in right subtree
-        if(root.right == null) return left + 1; // leaf nodes are in left subtree
-
-        // left/right subtrees both contains leaf nodes
-        return Math.min(left, right) + 1;
+        int minLeft = minDepth(root.left);
+        int minRight = minDepth(root.right);
+        // Using BFS Recursion
+        return ((minLeft == 0 || minRight == 0) ? minLeft + minRight + 1: Math.min(minLeft,minRight) + 1);
     }
 }
