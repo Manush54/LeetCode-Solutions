@@ -1,3 +1,13 @@
+/*
+i/p-> 15,11,7,2
+check_map = {
+15,1
+11,2
+ 7,3
+}
+ at 2 -> 9 - 2 = 7 returns true
+ hence solution returned = [3,4]
+*/
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int len = nums.length;
@@ -14,8 +24,7 @@ class Solution {
                 solution[0] = check_map.get(target - nums[i]);
                 return solution;
             }
-            check_map.put(nums[i], i);
-            
+            check_map.put(nums[i], i);        
         }
         return solution;
         
