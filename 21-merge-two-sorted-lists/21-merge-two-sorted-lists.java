@@ -14,7 +14,10 @@ class Solution {
         if(list1 == null) return list2;
         if(list2 == null) return list1;
         
+        // Initializing new list node and pointer to that node
         ListNode list3 = new ListNode(0), p = list3;
+        
+        // Merge two lisnked lists
         while(list1 != null && list2 != null){
             if(list1.val < list2.val){
                 p.next = list1;
@@ -26,11 +29,10 @@ class Solution {
             p = p.next;
         }
         
-        if (list1 != null)
-            p.next = list1;
-        if(list2 != null)
-            p.next = list2;
-        
+        // Merging remaining lists
+        if(list1 == null) p.next = list2;
+        if(list2 == null) p.next = list1;
+
         return list3.next;
     }
 }
