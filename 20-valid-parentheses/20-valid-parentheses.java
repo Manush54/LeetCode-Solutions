@@ -1,11 +1,16 @@
-import java.util.regex.*;
 class Solution {
     public boolean isValid(String s) {
-		Matcher m = Pattern.compile("(\\{})|(\\[])|(\\(\\))").matcher(s);
-		while(m.find()) {
-			s = m.replaceAll("");
-			m.reset(s);
-		}
-		return s.length() == 0;
+	Stack<Character> stack = new Stack<Character>();
+	for (char c : s.toCharArray()) {
+		if (c == '(')
+			stack.push(')');
+		else if (c == '{')
+			stack.push('}');
+		else if (c == '[')
+			stack.push(']');
+		else if (stack.isEmpty() || stack.pop() != c)
+			return false;
 	}
+	return stack.isEmpty();
+}
 }
