@@ -4,13 +4,13 @@ class Solution {
         char[] charArr = new char[n];
         Arrays.fill(charArr, 'a');
         
-        k -= n; // Guarantee each character value is at least 1.
-        
-        for (int i = n - 1; i >= 0 && k > 0; i--) {
-            // Add the appropriate value(Math.min(25,k)) in charArr and subtract from total
-            charArr[i] += Math.min(25, k);  // eg.(25,54) -> 25 smaller,, (14,25) -> 14 smaller
-            k -= Math.min(k, 25);
-        }
+        k -= n;                               // since all array is 'a'
+        int count_25 = k / 25, i;                        // We only need 25 extra to make 'a' to 'z' 
+        for (i = 1; i <= count_25; i++)
+            charArr[n-i] = 'z';    // last elements that can be made 'z' made 'z'
+        if (n > count_25) {
+            charArr[n-i] = (char)('a' + (k % 25));
+        }    // if ast element that is before Zs have value other than 'a'  
         
         return String.valueOf(charArr);
     }
